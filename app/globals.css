@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gayo-50: #FAFAFA;
+  --color-gayo-100: #F7F3EE;
+  --color-gayo-200: #E8E0D4;
+  --color-gayo-300: #C73B3B;
+  --color-gayo-400: #D4A843;
+  --color-gayo-500: #4A90D9;
+  --color-gayo-600: #2563EB;
+  --color-gayo-700: #1A7A48;
+  --color-gayo-800: #163A2A;
+  --color-gayo-900: #0D4F2E;
+  --color-gayo-950: #1A1A2E;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+}

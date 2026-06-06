@@ -1,0 +1,5 @@
+{
+  "name": "save-session",
+  "description": "Buat ringkasan sesi OpenCode saat ini ke memory/sessions/",
+  "template": "Buat ringkasan sesi OpenCode yang baru saja selesai. Baca memory/INDEX.md untuk nomor sesi terakhir, buat file baru di memory/sessions/ dengan format YYYY-MM-DD-sesi-{nomor}.md, dan update memory/INDEX.md."
+}

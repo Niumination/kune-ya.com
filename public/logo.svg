@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D4F2E"/>
+      <stop offset="100%" stop-color="#D4A843"/>
+    </linearGradient>
+    <linearGradient id="gSecondary" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C73B3B"/>
+      <stop offset="100%" stop-color="#D4A843"/>
+    </linearGradient>
+    <linearGradient id="gTech" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D4F2E"/>
+      <stop offset="100%" stop-color="#4A90D9"/>
+    </linearGradient>
+    <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#E8C870"/>
+    </linearGradient>
+    <linearGradient id="gMountain" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0D4F2E"/>
+      <stop offset="100%" stop-color="#1A7A48"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ============ ICON MARK ============ -->
+
+  <!-- Shadow/glow behind diamond -->
+  <ellipse cx="80" cy="85" rx="52" ry="52" fill="#0D4F2E" opacity="0.08"/>
+
+  <!-- Main Diamond (Kerawang motif) -->
+  <path d="M80 25 L125 80 L80 135 L35 80 Z" fill="url(#gPrimary)" opacity="0.95"/>
+
+  <!-- Inner Diamond (negative space) -->
+  <path d="M80 40 L112 80 L80 120 L48 80 Z" fill="#FAFAFA"/>
+
+  <!-- Mountain Peak (Gayo highlands) inside inner diamond -->
+  <path d="M80 48 L98 72 L88 72 L96 80 L64 80 L72 72 L62 72 Z" fill="url(#gMountain)"/>
+
+  <!-- Kerawang geometric pattern (bottom half of inner diamond) -->
+  <path d="M80 88 L96 100 L80 112 L64 100 Z" fill="url(#gGold)" opacity="0.85"/>
+
+  <!-- Small kerawang dots -->
+  <circle cx="80" cy="96" r="3" fill="#FAFAFA" opacity="0.9"/>
+  <circle cx="72" cy="100" r="2" fill="#FAFAFA" opacity="0.6"/>
+  <circle cx="88" cy="100" r="2" fill="#FAFAFA" opacity="0.6"/>
+
+  <!-- AI Node at center -->
+  <circle cx="80" cy="80" r="5" fill="url(#gSecondary)"/>
+  <circle cx="80" cy="80" r="2" fill="#FAFAFA"/>
+
+  <!-- AI circuit nodes at 4 corners of outer diamond -->
+  <circle cx="80" cy="25" r="3.5" fill="#4A90D9"/>
+  <circle cx="125" cy="80" r="3.5" fill="#D4A843"/>
+  <circle cx="80" cy="135" r="3.5" fill="#C73B3B"/>
+  <circle cx="35" cy="80" r="3.5" fill="#0D4F2E"/>
+
+  <!-- Circuit lines connecting nodes to center -->
+  <line x1="80" y1="28" x2="80" y2="75" stroke="#4A90D9" stroke-width="1" opacity="0.4"/>
+  <line x1="122" y1="80" x2="85" y2="80" stroke="#D4A843" stroke-width="1" opacity="0.4"/>
+  <line x1="80" y1="132" x2="80" y2="85" stroke="#C73B3B" stroke-width="1" opacity="0.4"/>
+  <line x1="38" y1="80" x2="75" y2="80" stroke="#0D4F2E" stroke-width="1" opacity="0.4"/>
+
+  <!-- Decorative arc at top (mountain horizon) -->
+  <path d="M50 75 Q80 55 110 75" stroke="#D4A843" stroke-width="1.5" fill="none" opacity="0.3"/>
+
+  <!-- ============ WORDMARK ============ -->
+
+  <!-- "kune" -->
+  <text x="155" y="78" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="52" font-weight="700" fill="#1A1A2E" letter-spacing="1">
+    kune
+  </text>
+
+  <!-- dash/hyphen -->
+  <line x1="342" y1="64" x2="358" y2="64" stroke="#D4A843" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- "ya" -->
+  <text x="370" y="82" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="56" font-weight="800" fill="url(#gPrimary)" letter-spacing="1">
+    ya
+  </text>
+
+  <!-- Dot accent above 'y' -->
+  <circle cx="382" cy="42" r="5" fill="url(#gGold)"/>
+
+  <!-- Tagline -->
+  <text x="155" y="120" font-family="'Inter', system-ui, sans-serif" font-size="16" font-weight="500" fill="#1A1A2E" opacity="0.6" letter-spacing="2">
+    AI Agentic untuk ASN Aceh Tengah
+  </text>
+</svg>

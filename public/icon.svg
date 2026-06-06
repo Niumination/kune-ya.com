@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D4F2E"/>
+      <stop offset="100%" stop-color="#D4A843"/>
+    </linearGradient>
+    <linearGradient id="gm" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0D4F2E"/>
+      <stop offset="100%" stop-color="#1A7A48"/>
+    </linearGradient>
+    <linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#E8C870"/>
+    </linearGradient>
+    <linearGradient id="gr" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C73B3B"/>
+      <stop offset="100%" stop-color="#D4A843"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="#FAFAFA"/>
+  <!-- Outer diamond -->
+  <path d="M100 25 L160 100 L100 175 L40 100 Z" fill="url(#g)" opacity="0.95"/>
+  <!-- Inner diamond -->
+  <path d="M100 50 L140 100 L100 150 L60 100 Z" fill="#FAFAFA"/>
+  <!-- Mountain peak -->
+  <path d="M100 58 L123 88 L110 88 L120 100 L80 100 L90 88 L77 88 Z" fill="url(#gm)"/>
+  <!-- Kerawang pattern -->
+  <path d="M100 108 L120 124 L100 140 L80 124 Z" fill="url(#gg)" opacity="0.85"/>
+  <circle cx="100" cy="120" r="4" fill="#FAFAFA" opacity="0.9"/>
+  <circle cx="90" cy="124" r="3" fill="#FAFAFA" opacity="0.6"/>
+  <circle cx="110" cy="124" r="3" fill="#FAFAFA" opacity="0.6"/>
+  <!-- AI center node -->
+  <circle cx="100" cy="100" r="7" fill="url(#gr)"/>
+  <circle cx="100" cy="100" r="3" fill="#FAFAFA"/>
+  <!-- Corner nodes -->
+  <circle cx="100" cy="25" r="5" fill="#4A90D9"/>
+  <circle cx="160" cy="100" r="5" fill="#D4A843"/>
+  <circle cx="100" cy="175" r="5" fill="#C73B3B"/>
+  <circle cx="40" cy="100" r="5" fill="#0D4F2E"/>
+  <!-- Circuit lines -->
+  <line x1="100" y1="30" x2="100" y2="93" stroke="#4A90D9" stroke-width="1.5" opacity="0.5"/>
+  <line x1="155" y1="100" x2="107" y2="100" stroke="#D4A843" stroke-width="1.5" opacity="0.5"/>
+  <line x1="100" y1="170" x2="100" y2="107" stroke="#C73B3B" stroke-width="1.5" opacity="0.5"/>
+  <line x1="45" y1="100" x2="93" y2="100" stroke="#0D4F2E" stroke-width="1.5" opacity="0.5"/>
+</svg>

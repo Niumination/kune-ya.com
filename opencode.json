@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "anthropic/claude-sonnet-4-5",
+  "autoupdate": true,
+  "server": {
+    "port": 4096
+  },
+  "command": {
+    "dev": {
+      "template": "Jalankan development server dengan `npm run dev`",
+      "description": "Run Next.js development server"
+    },
+    "build": {
+      "template": "Build project untuk production dengan `npm run build`",
+      "description": "Build project for production"
+    },
+    "lint": {
+      "template": "Jalankan ESLint dengan `npm run lint`",
+      "description": "Run ESLint"
+    },
+    "typecheck": {
+      "template": "Jalankan TypeScript type check dengan `npx tsc --noEmit`",
+      "description": "Run TypeScript type check"
+    },
+    "db-push": {
+      "template": "Push database schema dengan `npx prisma db push`",
+      "description": "Push database schema"
+    },
+    "db-studio": {
+      "template": "Buka Prisma Studio dengan `npx prisma studio`",
+      "description": "Open Prisma Studio"
+    }
+  },
+  "provider": {},
+  "instructions": [
+    "AGENTS.md"
+  ]
+}

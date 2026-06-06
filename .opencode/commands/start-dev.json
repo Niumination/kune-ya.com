@@ -1,0 +1,5 @@
+{
+  "name": "start-dev",
+  "description": "Start development server with all needed services",
+  "template": "Jalankan development server Next.js dengan `npm run dev` di folder proyek C:\\Users\\Admin\\Zhall-Dev\\kune-ya.com. Tunggu sampai server siap dan beri tahu user URL-nya."
+}

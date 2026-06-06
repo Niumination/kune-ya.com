@@ -1,0 +1,17 @@
+{
+  "name": "Kune-Ya — AI Agentic untuk ASN Aceh Tengah",
+  "short_name": "Kune-Ya",
+  "description": "Platform AI Agentic untuk membantu ASN Diskominfo Aceh Tengah dalam administrasi, analisis kebijakan, dan penyusunan laporan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#0D4F2E",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

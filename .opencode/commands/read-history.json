@@ -1,0 +1,5 @@
+{
+  "name": "read-history",
+  "description": "Baca history sesi terakhir sebelum memulai pekerjaan",
+  "template": "Baca memory/INDEX.md untuk melihat daftar sesi. Kemudian baca sesi terakhir dari folder memory/sessions/ untuk memahami progres terakhir sebelum melanjutkan pekerjaan."
+}

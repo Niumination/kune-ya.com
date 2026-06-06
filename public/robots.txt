@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kune-ya.com/sitemap.xml
