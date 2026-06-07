@@ -9,9 +9,12 @@
 | Item | Detail |
 |---|---|
 | **Inspirasi** | [korinai.com](https://korinai.com) |
-| **Direktori Proyek** | `C:\Users\Admin\Zhall-Dev\kune-ya.com` |
-| **Analisis KorinAI** | `C:\Users\Admin\Desktop\Analisis-KorinAI.md` |
-| **User / Developer** | Zhall |
+| **Direktori Proyek (macOS)** | `/Users/zaryu/Desktop/Niumination/kune-ya.com` |
+| **GitHub** | `https://github.com/Niumination/kune-ya.com` |
+| **Vercel Live** | `https://kune-ya-com.vercel.app` |
+| **Database** | Neon PostgreSQL (`muddy-poetry-36397257`) |
+| **AI Provider** | OpenCode AI Zen (`deepseek-v4-flash-free`) |
+| **User / Developer** | Zhall / archk4lis
 
 ---
 
