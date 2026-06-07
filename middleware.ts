@@ -14,26 +14,7 @@ const CSP = [
   "form-action 'self'",
 ].join("; ");
 
-const protectedPaths = ["/dashboard"];
-
 export default function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
-
-  // Check session via next-auth.session-token cookie
-  const hasSession =
-    req.cookies.has("next-auth.session-token") ||
-    req.cookies.has("__Secure-next-auth.session-token");
-
-  // Protect dashboard routes
-  if (
-    !hasSession &&
-    protectedPaths.some((p) => pathname.startsWith(p))
-  ) {
-    const loginUrl = new URL("/login", req.url);
-    loginUrl.searchParams.set("callbackUrl", pathname);
-    return NextResponse.redirect(loginUrl);
-  }
-
   const response = NextResponse.next();
 
   // Security headers
