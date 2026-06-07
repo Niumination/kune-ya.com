@@ -1,17 +1,17 @@
 import type { NextConfig } from "next";
-import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: process.cwd(),
-  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
+
+  // Security headers via middleware instead
+  poweredByHeader: false,
+  reactStrictMode: true,
+
+  // Compress responses
+  compress: true,
+
+  // Optimize production builds
+  swcMinify: true,
 };
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-});
-
-export default withMDX(nextConfig);
+export default nextConfig;

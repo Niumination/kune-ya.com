@@ -7,15 +7,20 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  preload: false,
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-plus-jakarta-sans",
+  preload: false,
 });
 
 export const metadata: Metadata = {
-  title: "Kune-Ya — AI Agentic untuk ASN Aceh Tengah",
+  title: {
+    default: "Kune-Ya — AI Agentic untuk ASN Aceh Tengah",
+    template: "%s — Kune-Ya",
+  },
   description:
     "Platform AI Agentic untuk membantu ASN Diskominfo Aceh Tengah dalam administrasi, analisis kebijakan, penyusunan laporan, presentasi, dan tugas sehari-hari.",
   openGraph: {
@@ -23,10 +28,17 @@ export const metadata: Metadata = {
     description:
       "Platform AI Agentic untuk ASN Diskominfo Aceh Tengah.",
     type: "website",
+    locale: "id_ID",
+    siteName: "Kune-Ya",
   },
   manifest: "/manifest.json",
   icons: {
     icon: "/icon.svg",
+  },
+  metadataBase: new URL("https://kune-ya.com"),
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -36,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="id" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

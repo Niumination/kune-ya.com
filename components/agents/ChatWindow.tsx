@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { personas, type PersonaId } from "@/lib/ai";
 import ChatSidebar from "./ChatSidebar";
 import DocumentsPanel from "./DocumentsPanel";
@@ -14,7 +13,6 @@ interface Message {
 }
 
 export default function ChatWindow() {
-  const { data: session } = useSession();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,21 +24,25 @@ export default function ChatWindow() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const currentPersona = personas[personaId];
 
-  // Load conversations
-  const loadConversations = async () => {
+  // Ref to track assistant content during streaming to avoid StrictMode double-processing
+  const streamRef = useRef({
+    assistantId: null as string | null,
+    content: "",
+  });
+
+  const loadConversations = useCallback(async () => {
     try {
       const res = await fetch("/api/conversations");
       if (res.ok) {
         setConversations(await res.json());
       }
     } catch {}
-  };
+  }, []);
 
   useEffect(() => {
     loadConversations();
-  }, []);
+  }, [loadConversations]);
 
-  // Auto-scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -50,13 +52,16 @@ export default function ChatWindow() {
     if (!input.trim() || loading) return;
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: "user",
       content: input.trim(),
     };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
+
+    // Reset stream ref
+    streamRef.current = { assistantId: null, content: "" };
 
     try {
       const res = await fetch("/api/chat", {
@@ -69,29 +74,27 @@ export default function ChatWindow() {
         }),
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to send message");
-      }
+      if (!res.ok) throw new Error("Failed to send message");
 
-      // Read conversationId from the response
       const reader = res.body?.getReader();
       if (!reader) throw new Error("No reader");
 
-      const assistantMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: "",
-      };
-      setMessages((prev) => [...prev, assistantMsg]);
+      // Create assistant placeholder
+      const assistantId = crypto.randomUUID();
+      streamRef.current.assistantId = assistantId;
+      setMessages((prev) => [
+        ...prev,
+        { id: assistantId, role: "assistant", content: "" },
+      ]);
 
       let newConvId = conversationId;
-      let decoder = new TextDecoder();
+      const decoder = new TextDecoder();
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        const chunk = decoder.decode(value);
+        const chunk = decoder.decode(value, { stream: true });
         const lines = chunk.split("\n");
 
         for (const line of lines) {
@@ -99,14 +102,15 @@ export default function ChatWindow() {
             try {
               const data = JSON.parse(line.slice(6));
               if (data.content) {
-                setMessages((prev) => {
-                  const updated = [...prev];
-                  const last = updated[updated.length - 1];
-                  if (last.role === "assistant") {
-                    last.content += data.content;
-                  }
-                  return updated;
-                });
+                streamRef.current.content += data.content;
+                // Always create new Message objects — never mutate
+                setMessages((prev) =>
+                  prev.map((msg) =>
+                    msg.id === assistantId
+                      ? { ...msg, content: streamRef.current.content }
+                      : msg
+                  )
+                );
               }
               if (data.done) {
                 newConvId = data.conversationId;
@@ -125,13 +129,14 @@ export default function ChatWindow() {
       setMessages((prev) => [
         ...prev,
         {
-          id: (Date.now() + 2).toString(),
+          id: crypto.randomUUID(),
           role: "assistant",
           content: "Maaf, terjadi kesalahan. Silakan coba lagi.",
         },
       ]);
     } finally {
       setLoading(false);
+      streamRef.current = { assistantId: null, content: "" };
     }
   };
 
@@ -175,7 +180,6 @@ export default function ChatWindow() {
 
   return (
     <div className="flex h-[calc(100vh-4rem)]">
-      {/* Sidebar */}
       <ChatSidebar
         conversations={conversations}
         currentId={conversationId}
@@ -186,13 +190,11 @@ export default function ChatWindow() {
         onToggle={() => setSidebarOpen(!sidebarOpen)}
       />
 
-      {/* Documents Panel */}
       <DocumentsPanel
         open={documentsOpen}
         onToggle={() => setDocumentsOpen(!documentsOpen)}
       />
 
-      {/* Main Chat Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top Bar */}
         <div className="border-b border-gayo-200 dark:border-gayo-800 px-4 py-3 flex items-center gap-3 bg-white dark:bg-gayo-950">
@@ -215,7 +217,6 @@ export default function ChatWindow() {
             </svg>
           </button>
 
-          {/* Persona Selector */}
           <div className="flex items-center gap-2 overflow-x-auto flex-1">
             {Object.values(personas).map((p) => (
               <button
@@ -233,7 +234,6 @@ export default function ChatWindow() {
             ))}
           </div>
 
-          {/* Knowledge Base Toggle */}
           <button
             onClick={() => setDocumentsOpen(!documentsOpen)}
             className={`p-2 rounded-lg transition-all ${
@@ -281,9 +281,7 @@ export default function ChatWindow() {
                 ].map((q, i) => (
                   <button
                     key={i}
-                    onClick={() => {
-                      setInput(q);
-                    }}
+                    onClick={() => setInput(q)}
                     className="text-left text-sm p-3 rounded-xl border border-gayo-200 dark:border-gayo-800 hover:border-gayo-400 dark:hover:border-gayo-600 text-gayo-950/70 dark:text-gayo-100/70 hover:bg-gayo-50 dark:hover:bg-gayo-800/50 transition-all"
                   >
                     {q}

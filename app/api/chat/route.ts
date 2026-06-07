@@ -106,7 +106,7 @@ export async function POST(req: Request) {
     // === STREAMING RESPONSE ===
     const openai = getOpenAI();
     const stream = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
       messages,
       stream: true,
       temperature: 0.7,

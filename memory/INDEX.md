@@ -33,6 +33,7 @@ memory/
 | 5 | 7 Juni 2026 | Sesi 5 | Integrasi OpenAI API, 5 sistem Persona ASN, chat streaming, dashboard, riwayat percakapan | ✅ Selesai |
 | 6 | 7 Juni 2026 | Sesi 6 | File upload (PDF/DOCX/TXT), embedding + cosine similarity RAG, Knowledge Base UI, RAG di chat | ✅ Selesai |
 | 7 | 7 Juni 2026 | Sesi 7 | Dokumentasi MDX (7 halaman docs, sidebar), manajemen file, sharing agent, analytics dasar | ✅ Selesai |
+| 8 | 7 Juni 2026 | Sesi 8 | SEO audit, security headers, DEPLOY.md, vercel.json, tutorial page AI chat, Fase 7 | ✅ Selesai |
 
 ---
 

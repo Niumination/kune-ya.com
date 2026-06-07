@@ -16,8 +16,8 @@
   --color-gayo-900: #0D4F2E;
   --color-gayo-950: #1A1A2E;
 
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-plus-jakarta-sans), system-ui, sans-serif;
 }
 
 @layer base {

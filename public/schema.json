@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kune-Ya",
+  "applicationCategory": "AI Agentic untuk ASN",
+  "operatingSystem": "Web",
+  "description": "Platform AI Agentic untuk membantu ASN Diskominfo Aceh Tengah dalam administrasi, analisis kebijakan, penyusunan laporan, presentasi, dan sosialisasi.",
+  "url": "https://kune-ya.com",
+  "author": {
+    "@type": "Organization",
+    "name": "Kune-Ya"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "IDR"
+  }
+}

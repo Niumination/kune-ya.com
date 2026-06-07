@@ -58,12 +58,12 @@
 - [x] Analytics dasar
 
 ### Fase 7: Production Readiness
-- [ ] SEO audit & improvement
-- [ ] Performance optimization (SSR/ISR)
-- [ ] Security hardening
-- [ ] Error monitoring (Sentry)
-- [ ] CI/CD pipeline
-- [ ] SSL optimization
+- [x] SEO audit & improvement
+- [x] Performance optimization (SSR/ISR)
+- [x] Security hardening
+- [x] DEPLOY.md + vercel.json
+- [ ] Deploy ke Vercel / hosting pilihan
+- [x] Tutorial page penggunaan AI chat
 
 ---
 

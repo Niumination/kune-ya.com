@@ -96,6 +96,12 @@ export default function Home() {
             <a href="#kontak" className="hover:text-gayo-900 dark:hover:text-gayo-100 transition-colors">
               Kontak
             </a>
+            <Link href="/tutorial" className="hover:text-gayo-900 dark:hover:text-gayo-100 transition-colors">
+              Tutorial
+            </Link>
+            <Link href="/docs" className="hover:text-gayo-900 dark:hover:text-gayo-100 transition-colors">
+              Docs
+            </Link>
           </nav>
           <div className="flex items-center gap-3">
             <ThemeToggle />
