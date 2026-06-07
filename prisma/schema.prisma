@@ -1,13 +1,15 @@
-// Prisma schema — SQLite for dev, PostgreSQL-ready for production
-// To switch: change provider to "postgresql" + update datasource url in .env
+// Prisma schema — PostgreSQL (Neon serverless)
+// Local dev: uses DATABASE_URL from .env
+// Production: uses POSTGRES_PRISMA_URL from Vercel env
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model User {
