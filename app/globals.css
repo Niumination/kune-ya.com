@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -22,5 +23,34 @@
 @layer base {
   body {
     @apply transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .prose-gayo {
+    --tw-prose-body: #1A1A2E;
+    --tw-prose-headings: #0D4F2E;
+    --tw-prose-links: #1A7A48;
+    --tw-prose-bold: #1A1A2E;
+    --tw-prose-counters: #D4A843;
+    --tw-prose-bullets: #D4A843;
+    --tw-prose-hr: #E8E0D4;
+    --tw-prose-quotes: #1A7A48;
+    --tw-prose-code: #C73B3B;
+    --tw-prose-pre-bg: #1A1A2E;
+    --tw-prose-th-borders: #E8E0D4;
+    --tw-prose-td-borders: #E8E0D4;
+  }
+  .dark .prose-gayo {
+    --tw-prose-body: #E8E0D4;
+    --tw-prose-headings: #FAFAFA;
+    --tw-prose-links: #D4A843;
+    --tw-prose-bold: #FAFAFA;
+    --tw-prose-hr: #163A2A;
+    --tw-prose-quotes: #D4A843;
+    --tw-prose-code: #C73B3B;
+    --tw-prose-pre-bg: #0D4F2E;
+    --tw-prose-th-borders: #163A2A;
+    --tw-prose-td-borders: #163A2A;
   }
 }

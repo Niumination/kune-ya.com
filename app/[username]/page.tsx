@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
+import ShareButton from "@/components/layout/ShareButton";
 
 export default async function UserPage({
   params,
@@ -58,6 +59,9 @@ export default async function UserPage({
                   day: "numeric",
                 })}
               </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <ShareButton username={user.username} />
             </div>
           </div>
         </div>

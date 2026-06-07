@@ -21,7 +21,13 @@ export default async function DashboardPage() {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href={`/${session.user.name || "dashboard"}`}
+              href={`/dashboard/files`}
+              className="text-sm text-gayo-950/60 dark:text-gayo-100/60 hover:text-gayo-900 dark:hover:text-gayo-100 transition-colors"
+            >
+              File
+            </a>
+            <a
+              href={`/${session.user.username || session.user.name || "profil"}`}
               className="text-sm text-gayo-950/60 dark:text-gayo-100/60 hover:text-gayo-900 dark:hover:text-gayo-100 transition-colors"
             >
               Profil

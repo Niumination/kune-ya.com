@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import AuthProvider from "@/components/layout/AuthProvider";
+import AnalyticsTracker from "@/components/layout/AnalyticsTracker";
 import "./globals.css";
 
 const inter = Inter({
@@ -56,7 +57,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} font-sans antialiased bg-gayo-50 text-gayo-950 dark:bg-gayo-950 dark:text-gayo-100`}
       >
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <AnalyticsTracker />
+        </AuthProvider>
       </body>
     </html>
   );

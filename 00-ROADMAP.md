@@ -45,17 +45,17 @@
 - [x] File upload & processing (PDF, DOCX, TXT)
 
 ### Fase 5: Dokumentasi (Docs)
-- [ ] `/docs` layout + sidebar navigasi
-- [ ] Halaman getting-started
-- [ ] Halaman use case (min. 4 use case)
-- [ ] MDX atau CMS untuk konten docs
+- [x] `/docs` layout + sidebar navigasi
+- [x] Halaman getting-started
+- [x] Halaman use case (min. 4 use case)
+- [x] MDX atau CMS untuk konten docs
 
 ### Fase 6: Fitur Tambahan
 - [x] Dashboard user
 - [x] Riwayat chat/percakapan
-- [ ] Manajemen file
-- [ ] Sharing / embed agent
-- [ ] Analytics dasar
+- [x] Manajemen file
+- [x] Sharing / embed agent
+- [x] Analytics dasar
 
 ### Fase 7: Production Readiness
 - [ ] SEO audit & improvement
