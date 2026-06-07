@@ -1,9 +1,9 @@
-import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // needed for next.js
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
@@ -14,14 +14,21 @@ const CSP = [
   "form-action 'self'",
 ].join("; ");
 
-export default auth((req) => {
+const protectedPaths = ["/dashboard"];
+
+export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const isLoggedIn = !!req.auth;
 
-  // Protected routes
-  const protectedPaths = ["/dashboard"];
+  // Check session via next-auth.session-token cookie
+  const hasSession =
+    req.cookies.has("next-auth.session-token") ||
+    req.cookies.has("__Secure-next-auth.session-token");
 
-  if (!isLoggedIn && protectedPaths.some((p) => pathname.startsWith(p))) {
+  // Protect dashboard routes
+  if (
+    !hasSession &&
+    protectedPaths.some((p) => pathname.startsWith(p))
+  ) {
     const loginUrl = new URL("/login", req.url);
     loginUrl.searchParams.set("callbackUrl", pathname);
     return NextResponse.redirect(loginUrl);
@@ -39,13 +46,12 @@ export default auth((req) => {
     "camera=(), microphone=(), geolocation=()"
   );
 
-  // Enable CSP in production only (too strict for dev)
   if (process.env.NODE_ENV === "production") {
     response.headers.set("Content-Security-Policy", CSP);
   }
 
   return response;
-});
+}
 
 export const config = {
   matcher: [
