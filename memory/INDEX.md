@@ -29,6 +29,9 @@ memory/
 | 1 | 12 Mei 2026 | Sesi 1 | Analisis KorinAI, setup proyek, konfigurasi OpenCode | ✅ Selesai |
 | 2 | 12 Mei 2026 | Sesi 2 | Niche & branding Gayo, logo, inisialisasi Next.js, Tailwind, landing page awal | ✅ Selesai |
 | 3 | 6 Juni 2026 | Sesi 3 | Dark mode, landing page lengkap (fitur, use case, kontak), PWA manifest, robots.txt, sitemap, 404, routing [username] | ✅ Selesai |
+| 4 | 6 Juni 2026 | Sesi 4 | Prisma ORM (SQLite), NextAuth.js v5, auth pages (login/register), middleware, AuthButton, [username] dari database | ✅ Selesai |
+| 5 | 7 Juni 2026 | Sesi 5 | Integrasi OpenAI API, 5 sistem Persona ASN, chat streaming, dashboard, riwayat percakapan | ✅ Selesai |
+| 6 | 7 Juni 2026 | Sesi 6 | File upload (PDF/DOCX/TXT), embedding + cosine similarity RAG, Knowledge Base UI, RAG di chat | ✅ Selesai |
 
 ---
 

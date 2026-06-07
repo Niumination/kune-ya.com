@@ -1,4 +1,6 @@
 import ThemeToggle from "@/components/layout/ThemeToggle";
+import AuthButton from "@/components/layout/AuthButton";
+import Link from "next/link";
 
 const fitur = [
   {
@@ -97,9 +99,7 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <button className="bg-gayo-900 dark:bg-gayo-700 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-gayo-700 dark:hover:bg-gayo-600 transition-all active:scale-95">
-              Mulai
-            </button>
+            <AuthButton />
           </div>
         </div>
       </header>
@@ -124,12 +124,18 @@ export default function Home() {
             sosialisasi, semua dalam satu tempat.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-gayo-900 dark:bg-gayo-700 text-white px-8 py-3.5 rounded-xl text-base font-semibold hover:bg-gayo-700 dark:hover:bg-gayo-600 transition-all active:scale-95 shadow-lg shadow-gayo-900/20 w-full sm:w-auto">
+            <Link
+              href="/dashboard"
+              className="bg-gayo-900 dark:bg-gayo-700 text-white px-8 py-3.5 rounded-xl text-base font-semibold hover:bg-gayo-700 dark:hover:bg-gayo-600 transition-all active:scale-95 shadow-lg shadow-gayo-900/20 w-full sm:w-auto text-center"
+            >
               Coba Gratis
-            </button>
-            <button className="border border-gayo-300 dark:border-gayo-700 text-gayo-950 dark:text-gayo-100 px-8 py-3.5 rounded-xl text-base font-semibold hover:bg-gayo-100 dark:hover:bg-gayo-800 transition-all active:scale-95 w-full sm:w-auto">
-              Lihat Demo
-            </button>
+            </Link>
+            <Link
+              href="/login"
+              className="border border-gayo-300 dark:border-gayo-700 text-gayo-950 dark:text-gayo-100 px-8 py-3.5 rounded-xl text-base font-semibold hover:bg-gayo-100 dark:hover:bg-gayo-800 transition-all active:scale-95 w-full sm:w-auto text-center"
+            >
+              Masuk
+            </Link>
           </div>
         </div>
       </section>

@@ -32,17 +32,17 @@
 
 ### Fase 3: Routing & Auth
 - [x] `[username]` catch-all route untuk profil user
-- [ ] Sistem autentikasi (NextAuth.js / Clerk / custom)
-- [ ] Middleware untuk proteksi route
-- [ ] Halaman profil pengguna (agent page)
+- [x] Sistem autentikasi (NextAuth.js / Clerk / custom)
+- [x] Middleware untuk proteksi route
+- [x] Halaman profil pengguna (agent page)
 
 ### Fase 4: AI Agent Engine
-- [ ] Integrasi LLM API (OpenAI, Anthropic, atau lokal)
-- [ ] Sistem Persona (karakter/kepribadian agen)
-- [ ] Knowledge Base (RAG — upload dokumen)
+- [x] Integrasi LLM API (OpenAI)
+- [x] Sistem Persona (5 karakter agent untuk ASN)
+- [x] Knowledge Base (RAG — upload dokumen)
 - [ ] Multilingual support
-- [ ] Summarization engine
-- [ ] File upload & processing
+- [x] Summarization engine (via GPT)
+- [x] File upload & processing (PDF, DOCX, TXT)
 
 ### Fase 5: Dokumentasi (Docs)
 - [ ] `/docs` layout + sidebar navigasi
@@ -51,8 +51,8 @@
 - [ ] MDX atau CMS untuk konten docs
 
 ### Fase 6: Fitur Tambahan
-- [ ] Dashboard user
-- [ ] Riwayat chat/percakapan
+- [x] Dashboard user
+- [x] Riwayat chat/percakapan
 - [ ] Manajemen file
 - [ ] Sharing / embed agent
 - [ ] Analytics dasar
