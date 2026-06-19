@@ -99,3 +99,11 @@ model Document {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String   @unique
+  count     Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

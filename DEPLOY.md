@@ -13,6 +13,7 @@ Panduan lengkap untuk mendeploy Kune-Ya.com ke Vercel.
 | Variable | Contoh | Keterangan |
 |----------|--------|------------|
 | `DATABASE_URL` | `file:./dev.db` | SQLite untuk dev. Ganti PostgreSQL untuk production |
+| `DATABASE_URL_UNPOOLED` | (lihat Vercel Neon) | Hanya untuk PostgreSQL/Neon — direct connection untuk migrasi & Prisma |
 | `AUTH_SECRET` | `generate-with-openssl-rand-64` | Rahasia untuk JWT. Generate: `openssl rand -base64 64` |
 | `OPENAI_API_KEY` | `sk-...` | API key dari OpenCode AI Zen atau OpenAI |
 | `OPENAI_BASE_URL` | `https://opencode.ai/zen/v1` | Optional. Untuk OpenAI-compatible provider |
@@ -47,7 +48,7 @@ Vercel akan meminta mengatur environment variables secara interaktif.
 ### Build Command
 Vercel akan menjalankan:
 ```bash
-npx prisma generate && next build
+npx prisma generate && npx prisma migrate deploy && next build
 ```
 
 ### Post-Deploy

@@ -1,26 +1,41 @@
-// Simple in-memory page view counter
-// In production, replace with proper analytics (PostHog, Plausible, etc.)
+import { prisma } from "./db";
 
-const views = new Map<string, number>();
-
-export function trackPageView(path: string): number {
-  const current = views.get(path) || 0;
-  views.set(path, current + 1);
-  return current + 1;
+export async function trackPageView(path: string): Promise<number> {
+  try {
+    const record = await prisma.pageView.upsert({
+      where: { path },
+      update: { count: { increment: 1 } },
+      create: { path, count: 1 },
+    });
+    return record.count;
+  } catch (error) {
+    console.error("Analytics track error:", error);
+    return 0;
+  }
 }
 
-export function getPageViews(path: string): number {
-  return views.get(path) || 0;
+export async function getPageViews(path: string): Promise<number> {
+  try {
+    const record = await prisma.pageView.findUnique({ where: { path } });
+    return record?.count || 0;
+  } catch {
+    return 0;
+  }
 }
 
-export function getAllStats() {
-  const total = Array.from(views.values()).reduce((a, b) => a + b, 0);
-  return {
-    totalViews: total,
-    totalPages: views.size,
-    topPages: Array.from(views.entries())
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .map(([path, count]) => ({ path, count })),
-  };
+export async function getAllStats() {
+  try {
+    const rows = await prisma.pageView.findMany({
+      orderBy: { count: "desc" },
+      take: 10,
+    });
+    const total = rows.reduce((a, b) => a + b.count, 0);
+    return {
+      totalViews: total,
+      totalPages: rows.length,
+      topPages: rows.map((r) => ({ path: r.path, count: r.count })),
+    };
+  } catch {
+    return { totalViews: 0, totalPages: 0, topPages: [] };
+  }
 }

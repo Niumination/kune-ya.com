@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
   },
-  metadataBase: new URL("https://kune-ya.com"),
+  metadataBase: new URL("https://kune-ya-com.vercel.app"),
   robots: {
     index: true,
     follow: true,

@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     if (!path) {
       return NextResponse.json({ error: "Path is required" }, { status: 400 });
     }
-    const views = trackPageView(path);
+    const views = await trackPageView(path);
     return NextResponse.json({ path, views });
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
@@ -17,6 +17,6 @@ export async function POST(req: Request) {
 
 // GET /api/analytics — get stats (admin only for full stats)
 export async function GET() {
-  const stats = getAllStats();
+  const stats = await getAllStats();
   return NextResponse.json(stats);
 }
