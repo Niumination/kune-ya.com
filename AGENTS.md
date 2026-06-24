@@ -15,7 +15,7 @@
 - **Deployment**: Vercel
 - **Domain**: kune-ya.com (belum dibeli)
 - **User/Developer**: Zhall
-- **Folder Proyek**: `C:\Users\Admin\Zhall-Dev\kune-ya.com`
+- **Folder Proyek**: `Production/kune-ya.com/`
 
 ---
 
