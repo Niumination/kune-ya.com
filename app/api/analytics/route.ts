@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { trackPageView, getAllStats } from "@/lib/analytics";
+import { auth } from "@/lib/auth";
 
-// POST /api/analytics/track — track a page view
+// POST /api/analytics/track — track a page view (public)
 export async function POST(req: Request) {
   try {
     const { path } = await req.json();
@@ -15,8 +16,24 @@ export async function POST(req: Request) {
   }
 }
 
-// GET /api/analytics — get stats (admin only for full stats)
+// GET /api/analytics — get stats (admin only)
 export async function GET() {
-  const stats = await getAllStats();
-  return NextResponse.json(stats);
+  try {
+    // Require authentication
+    const session = await auth();
+    if (!session?.user?.email) {
+      return NextResponse.json(
+        { error: "Unauthorized — admin access required" },
+        { status: 401 }
+      );
+    }
+
+    const stats = await getAllStats();
+    return NextResponse.json(stats);
+  } catch {
+    return NextResponse.json(
+      { error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
 }

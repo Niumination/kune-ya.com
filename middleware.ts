@@ -26,7 +26,7 @@ export default function middleware(req: NextRequest) {
 
     // Stricter limit for auth endpoints
     const isAuthRoute =
-      pathname.startsWith("/api/auth/login") ||
+      pathname.startsWith("/api/auth/callback/credentials") ||
       pathname.startsWith("/api/auth/register");
 
     const result = checkRateLimit(ip, {
